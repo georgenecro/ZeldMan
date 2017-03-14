@@ -98,10 +98,10 @@
             this.powerups.setAll('y', 5, false, false, 1);
 			
             //  Pacman should collide with everything except the safe tile
-            this.map.setCollisionByExclusion([7,30], true, this.layer);   //edw vazw ta plakakia pou pataei
+            this.map.setCollisionByExclusion([7,30,329,330,340,341,351,352,362,363], true, this.layer);   //edw vazw ta plakakia pou pataei
 
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
-            this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
+            this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) - 90, 'pacman', 0);
             this.pacman.anchor.set(0.5);
             this.pacman.animations.add('munch', [0, 1, 2, 3], 15, true);
 
@@ -143,7 +143,7 @@
 
         checkDirection: function (turnTo) {
 
-            if (this.turning === turnTo || this.directions[turnTo] === null || this.directions[turnTo].index !== this.safetile)
+            if (this.turning === turnTo || this.directions[turnTo] === null || this.directions[turnTo].index !== 7 && this.directions[turnTo].index !== 30 && this.directions[turnTo].index !== 329 && this.directions[turnTo].index !== 330 && this.directions[turnTo].index !== 340 && this.directions[turnTo].index !== 341 && this.directions[turnTo].index !== 351 && this.directions[turnTo].index !== 352 && this.directions[turnTo].index !== 362 && this.directions[turnTo].index !== 363)
             {
                 //  Invalid direction if they're already set to turn that way
                 //  Or there is no tile there, or the tile isn't index 1 (a floor tile)
@@ -236,16 +236,6 @@
             if (this.dots.total === 0)
             {
                 this.dots.callAll('revive');
-            }
-
-        },
-		eatPowerup: function (pacman, powerup) {
-
-            powerup.kill();
-
-            if (this.powerups.total === 0)
-            {
-                this.powerups.callAll('revive');
             }
 
         },
