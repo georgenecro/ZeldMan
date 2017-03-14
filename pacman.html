@@ -20,7 +20,7 @@
 <audio src= "../assets/Gem.mp3" preload = "auto" autoplay loop> </audio>
     
     <script type="text/javascript">
-    var game = new Phaser.Game(448, 496, Phaser.AUTO);
+    var game = new Phaser.Game(896, 528, Phaser.AUTO);        //diastaseis pistas
         
     var Pacman = function (game) {
 
@@ -28,11 +28,11 @@
         this.layer = null;
         this.pacman = null;
 
-        this.safetile = 14;
+        this.safetile = 7;						//to main dapedo
         this.gridsize = 16;
 
         this.speed = 150;
-        this.threshold = 3;
+        this.threshold = 5;         //anoxh stis strofes
 
         this.marker = new Phaser.Point();
         this.turnPoint = new Phaser.Point();
@@ -98,7 +98,7 @@
             this.powerups.setAll('y', 5, false, false, 1);
 			
             //  Pacman should collide with everything except the safe tile
-            this.map.setCollisionByExclusion([this.safetile], true, this.layer);
+            this.map.setCollisionByExclusion([7,30], true, this.layer);   //edw vazw ta plakakia pou pataei
 
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
             this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
