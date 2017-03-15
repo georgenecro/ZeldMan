@@ -9,10 +9,11 @@
             padding: 0;
             background-color: #4c4c4c;
         }
-    <!--
+    
 	
     </style>
-	<audio controls  autoplay loop> 
+	<!--
+	<audio   autoplay loop> 
 		<source src="assets/GetLucky.mp3" type="audio/mpeg">
 	</audio>
 	
@@ -21,7 +22,6 @@
 </head>
 <body>
     
-<audio src= "../assets/Gem.mp3" preload = "auto" autoplay loop> </audio>
     
     <script type="text/javascript">
     var game = new Phaser.Game(896, 528, Phaser.AUTO);        //diastaseis pistas
@@ -73,7 +73,7 @@
             this.load.image('dot', 'assets/dot.png');
 			this.load.image('powerup', 'assets/powerup.png');	
             this.load.image('tiles', 'assets/pacman-tiles.png');
-            this.load.spritesheet('pacman', 'assets/pacman.png',33,	 22);		
+            this.load.spritesheet('pacman', 'assets/pacman.png',24,	 24);		
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
 
             //  Needless to say, graphics (C)opyright Namco
@@ -107,7 +107,8 @@
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
             this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) - 90, 'pacman', 0);
             this.pacman.anchor.set(0.5);
-            this.pacman.animations.add('munch', [0, 1, 2, 3,4,5,6], 30, true);
+            this.pacman.animations.add('munch', [0, 1, 2, 3,4,5,6], 20, true);
+			//his.pacman.animations.add('munch', [7, 8, 9, 10,11,12], 1, true);
 
             this.physics.arcade.enable(this.pacman);
             this.pacman.body.setSize(16, 16, 0, 0);
